@@ -2,8 +2,6 @@ const hw_input = document.getElementById("hw_input");
 const hw_adder = document.getElementById("hw_adder");
 const hw_container = document.getElementById("hw_container");
 const hw_added_date = new Date().toLocaleString();
-const hw_input_remover_id = document.getElementById("hw_remove");
-const hw_remover_button = document.getElementById("hw_remover_button");
 
 hw_adder.addEventListener("click", () => {
   const userInput = hw_input.value;
@@ -32,35 +30,10 @@ hw_adder.addEventListener("click", () => {
   window.location.reload();
 });
 
-hw_remover_button.addEventListener("click", () => {
-  const messages = JSON.parse(localStorage.getItem("messages")) || [];
-  const dates = JSON.parse(localStorage.getItem("dates")) || [];
-  const duedates = JSON.parse(localStorage.getItem("duedates")) || [];
-  const homeworkIndex = parseInt(hw_input_remover_id.value, 10) - 1;
-
-  if (isNaN(homeworkIndex) || homeworkIndex < 0 || homeworkIndex >= messages.length) {
-    alert("Numărul introdus este invalid!");
-    return;
-  }
-
-  messages.splice(homeworkIndex, 1);
-  dates.splice(homeworkIndex, 1);
-  duedates.splice(homeworkIndex, 1);
-
-  localStorage.setItem("messages", JSON.stringify(messages));
-  localStorage.setItem("dates", JSON.stringify(dates));
-  localStorage.setItem("duedates", JSON.stringify(duedates));
-
-  alert("Tema a fost ștearsă!");
-  hw_input_remover_id.value = "";
-  window.location.reload();
-});
-
 function load_hw() {
   const messages = JSON.parse(localStorage.getItem("messages")) || [];
   const dates = JSON.parse(localStorage.getItem("dates")) || [];
   const duedates = JSON.parse(localStorage.getItem("duedates")) || [];
-
 
   hw_container.innerHTML = "";
 
@@ -69,14 +42,14 @@ function load_hw() {
     return;
   }
 
-  messages.forEach((messages, index) => {
+  messages.forEach((message, index) => {
     const newDiv = document.createElement("div");
-    
-    const messageSpan = document.createElement("h2");
-    messageSpan.textContent = `Mesaj: ${messages}`;
-    messageSpan.style.display = "block";
-    messageSpan.style.fontWeight = "bold";
-    messageSpan.style.overflowWrap = "break-word";
+
+    const messageh2 = document.createElement("h2");
+    messageh2.textContent = `Mesaj: ${message}`;
+    messageh2.style.display = "block";
+    messageh2.style.fontWeight = "bold";
+    messageh2.style.overflowWrap = "break-word";
 
     const dateSpan = document.createElement("span");
     dateSpan.textContent = `Creat la: ${dates[index]}`;
@@ -88,9 +61,33 @@ function load_hw() {
     dueDateSpan.style.display = "block";
     dueDateSpan.style.color = "#555";
 
-    newDiv.appendChild(messageSpan);
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Șterge";
+    removeButton.style.marginTop = "10px";
+    removeButton.style.backgroundColor = "red";
+    removeButton.style.color = "white";
+    removeButton.style.border = "none";
+    removeButton.style.padding = "5px 10px";
+    removeButton.style.borderRadius = "5px";
+    removeButton.style.cursor = "pointer";
+
+    removeButton.addEventListener("click", () => {
+      messages.splice(index, 1);
+      dates.splice(index, 1);
+      duedates.splice(index, 1);
+
+      localStorage.setItem("messages", JSON.stringify(messages));
+      localStorage.setItem("dates", JSON.stringify(dates));
+      localStorage.setItem("duedates", JSON.stringify(duedates));
+
+      alert("Tema a fost ștearsă!");
+      load_hw();
+    });
+
+    newDiv.appendChild(messageh2);
     newDiv.appendChild(dateSpan);
     newDiv.appendChild(dueDateSpan);
+    newDiv.appendChild(removeButton);
 
     newDiv.style.border = "1px solid #ccc";
     newDiv.style.maxWidth = "100%";
