@@ -57,3 +57,12 @@
     margin-top: 10px;
     margin-bottom: 20px;
 }
+#delete_all{
+    margin-top: 20px;
+    border: none;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+}

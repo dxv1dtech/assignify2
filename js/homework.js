@@ -2,6 +2,7 @@ const hw_input = document.getElementById("hw_input");
 const hw_adder = document.getElementById("hw_adder");
 const hw_container = document.getElementById("hw_container");
 const hw_added_date = new Date().toLocaleString();
+const delete_all = document.getElementById("delete_all");
 
 hw_adder.addEventListener("click", () => {
   const userInput = hw_input.value;
@@ -101,3 +102,9 @@ function load_hw() {
 }
 
 window.addEventListener("DOMContentLoaded", load_hw);
+
+delete_all.addEventListener("click", () => {
+  localStorage.clear();
+  alert("Toate temele au fost sterse!");
+  window.location.reload();
+});
