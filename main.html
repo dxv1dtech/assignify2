@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignify</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+     <h2 style="text-decoration: underline;">Assignify</h2>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="main.html">Home</a></li>
+        <li><a href="stats.html">Stats</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
+    <div id="citat"></div>
+
+    <h2 style="margin-top: 20px;">Adauga o tema:</h2>
+
+    <input type="text" id="hw_input" placeholder="numele temei..."> <br>
+    <input type="text" id="hw_duedate" placeholder="data de finalizare..."> <br>
+    <button id="hw_adder">adauga tema</button>
+
+    <h2>Sterge o tema:</h2>
+
+    <input type="number" id="hw_remove" placeholder="scrie numarul temei..."> <br>
+    <button id="hw_remover_button">sterge tema</button>
+
+    <div class="text_container">
+      <h2>Lista cu teme adaugate:</h2>
+    </div>
+    <div id="hw_container"></div>
+  </div>
+  
+</body>
+
+<script src="js/homework.js"></script>
+<script src="js/citat.js"></script>
+
+</html>

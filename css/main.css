@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    position: relative; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000
+}
+.navbar .logo h2{
+    font-size: 30px;
+}
+.navbar nav{
+    flex-grow: 1;
+}
+.navbar .nav-links{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}  
+.navbar .nav-links li{
+    margin-left: 20px;
+} 
+.navbar .nav-links a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 5px 10px;
+} 
+.navbar .nav-links a:hover{
+    background-color: #A8A8A8;
+    border-radius: 5px;
+}
+#hw_input{
+    margin-bottom: 10px;
+}
+#hw_duedate{
+    margin-bottom: 10px;
+}
+#hw_adder{
+    margin-bottom: 20px;
+}
+.content{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#hw_remover_button{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
