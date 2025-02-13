@@ -5,30 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assignify</title>
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
 
   <header class="navbar">
     <div class="logo">
-     <h2 style="text-decoration: underline;">Assignify</h2>
+     <h2>Assignify</h2>
     </div>
     <nav>
-      <ul class="nav-links">
-        <li><a href="main.html">Home</a></li>
-        <li><a href="stats.html">Stats</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-      </ul>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="dropdown">
+          <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Create
+          </button>
+          <ul class="dropdown-menu">
+            <h2 style="margin-top: 20px;">Adauga o tema:</h2>
+            <input type="text" id="hw_input" placeholder="numele temei..."> <br>
+            <input type="text" id="hw_duedate" placeholder="data de finalizare..."> <br>
+            <button id="hw_adder">adauga tema</button>
+          </ul>
+        </div>
+        <button class="btn btn-primary" type="button">All Assignments</button>
+        <button class="btn btn-primary me-2" type="button">Dashboard</button>
+      </div>
     </nav>
   </header>
 
   <div class="content">
     <div id="citat"></div>
-
-    <h2 style="margin-top: 20px;">Adauga o tema:</h2>
-
-    <input type="text" id="hw_input" placeholder="numele temei..."> <br>
-    <input type="text" id="hw_duedate" placeholder="data de finalizare..."> <br>
-    <button id="hw_adder">adauga tema</button>
 
     <h2>Sterge o tema:</h2>
 
@@ -40,10 +45,13 @@
     </div>
     <div id="hw_container"></div>
   </div>
-  
+
+  <!-- Bootstrap JS Bundle (Includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS Files -->
+  <script src="js/homework.js"></script>
+  <script src="js/citat.js"></script>
+  <script src="js/dropdown.js"></script>
+
 </body>
-
-<script src="js/homework.js"></script>
-<script src="js/citat.js"></script>
-
 </html>

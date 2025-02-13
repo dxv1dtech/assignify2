@@ -8,7 +8,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: white;
+    background-color: lightgray;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -17,6 +17,7 @@
 }
 .navbar .logo h2{
     font-size: 30px;
+    margin-left: 0.5em;
 }
 .navbar nav{
     flex-grow: 1;
